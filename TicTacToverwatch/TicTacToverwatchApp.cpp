@@ -3,6 +3,7 @@
 #include "Font.h"
 #include "Input.h"
 
+
 TicTacToverwatchApp::TicTacToverwatchApp() {
 
 }
@@ -12,12 +13,24 @@ TicTacToverwatchApp::~TicTacToverwatchApp() {
 }
 
 bool TicTacToverwatchApp::startup() {
-	
+	//set up open gl shader and camera. 
 	m_2dRenderer = new aie::Renderer2D();
 
-	// TODO: remember to change this when redistributing a build!
-	// the following path would be used instead: "./font/consolas.ttf"
-	m_font = new aie::Font("../bin/font/consolas.ttf", 32);
+	//set font size and style
+	m_font = new aie::Font("./font/BigNoodleTooOblique.ttf", 72);
+
+	//essentially the background
+	m_playArea = new aie::Texture("./textures/TicTacToverwatch.png");
+	m_highlight = new aie::Texture("./textures/highlight.png");
+
+	//set up the next and previous button for the character select screen
+	//glm::vec2 buttonSize(100, 100);
+	//m_button_next = new Button(750, 250, buttonSize, "./textures/nextSymbol.png");
+	//m_button_previous = new Button(250, 750, buttonSize, "./textures/prevSymbol.png");
+
+
+
+
 
 	return true;
 }
