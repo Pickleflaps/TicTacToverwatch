@@ -1,0 +1,6 @@
+﻿  stdafx.cpp
+  dllmain.cpp
+  NetworkLibrary.cpp
+  Generating Code...
+NetworkLibrary.obj : error LNK2019: unresolved external symbol "public: __thiscall RakNet::SystemAddress::SystemAddress(void)" (??0SystemAddress@RakNet@@QAE@XZ) referenced in function "void __cdecl RakNet::`dynamic initializer for 'UNASSIGNED_SYSTEM_ADDRESS''(void)" (??__EUNASSIGNED_SYSTEM_ADDRESS@RakNet@@YAXXZ)
+C:\Users\Brendan\source\repos\TicTacToverwatch\NetworkLibrary\Debug\NetworkLibrary.dll : fatal error LNK1120: 1 unresolved externals

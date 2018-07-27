@@ -1,0 +1,17 @@
+﻿  TicTacToverwatchApp.cpp
+  main.cpp
+  Generating Code...
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: __thiscall aie::Application::Application(void)" (??0Application@aie@@QAE@XZ) referenced in function "public: __thiscall TicTacToverwatchApp::TicTacToverwatchApp(void)" (??0TicTacToverwatchApp@@QAE@XZ)
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall aie::Application::~Application(void)" (??1Application@aie@@UAE@XZ) referenced in function "public: virtual __thiscall TicTacToverwatchApp::~TicTacToverwatchApp(void)" (??1TicTacToverwatchApp@@UAE@XZ)
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: void __thiscall aie::Application::clearScreen(void)" (?clearScreen@Application@aie@@QAEXXZ) referenced in function "public: virtual void __thiscall TicTacToverwatchApp::draw(void)" (?draw@TicTacToverwatchApp@@UAEXXZ)
+TicTacToverwatchApp.obj : error LNK2001: unresolved external symbol "protected: virtual bool __thiscall aie::Application::createWindow(char const *,int,int,bool)" (?createWindow@Application@aie@@MAE_NPBDHH_N@Z)
+TicTacToverwatchApp.obj : error LNK2001: unresolved external symbol "protected: virtual void __thiscall aie::Application::destroyWindow(void)" (?destroyWindow@Application@aie@@MAEXXZ)
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: __thiscall aie::Renderer2D::Renderer2D(void)" (??0Renderer2D@aie@@QAE@XZ) referenced in function "public: virtual bool __thiscall TicTacToverwatchApp::startup(void)" (?startup@TicTacToverwatchApp@@UAE_NXZ)
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: __thiscall aie::Texture::Texture(char const *)" (??0Texture@aie@@QAE@PBD@Z) referenced in function "public: virtual bool __thiscall TicTacToverwatchApp::startup(void)" (?startup@TicTacToverwatchApp@@UAE_NXZ)
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: __thiscall aie::Font::Font(char const *,unsigned short)" (??0Font@aie@@QAE@PBDG@Z) referenced in function "public: virtual bool __thiscall TicTacToverwatchApp::startup(void)" (?startup@TicTacToverwatchApp@@UAE_NXZ)
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: __thiscall aie::Font::~Font(void)" (??1Font@aie@@QAE@XZ) referenced in function "public: void * __thiscall aie::Font::`scalar deleting destructor'(unsigned int)" (??_GFont@aie@@QAEPAXI@Z)
+TicTacToverwatchApp.obj : error LNK2019: unresolved external symbol "public: bool __thiscall aie::Input::isKeyDown(int)" (?isKeyDown@Input@aie@@QAE_NH@Z) referenced in function "public: virtual void __thiscall TicTacToverwatchApp::update(float)" (?update@TicTacToverwatchApp@@UAEXM@Z)
+TicTacToverwatchApp.obj : error LNK2001: unresolved external symbol "protected: static class aie::Input * aie::Input::m_instance" (?m_instance@Input@aie@@1PAV12@A)
+main.obj : error LNK2019: unresolved external symbol "public: void __thiscall aie::Application::run(char const *,int,int,bool)" (?run@Application@aie@@QAEXPBDHH_N@Z) referenced in function _main
+C:\Users\Brendan\source\repos\TicTacToverwatch\temp\Bootstrap\x64\Debug\bootstrap.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\Brendan\source\repos\TicTacToverwatch\temp\TicTacToverwatch\Win32\Debug\TicTacToverwatch.exe : fatal error LNK1120: 12 unresolved externals

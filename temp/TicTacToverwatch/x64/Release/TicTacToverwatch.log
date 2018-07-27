@@ -1,0 +1,12 @@
+﻿bootstrap.lib(Font.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+bootstrap.lib(Input.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in TicTacToverwatchApp.obj
+bootstrap.lib(Input.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in TicTacToverwatchApp.obj
+bootstrap.lib(Application.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in TicTacToverwatchApp.obj
+bootstrap.lib(Application.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in TicTacToverwatchApp.obj
+bootstrap.lib(Renderer2D.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in TicTacToverwatchApp.obj
+bootstrap.lib(Renderer2D.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in TicTacToverwatchApp.obj
+bootstrap.lib(imgui_glfw3.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in TicTacToverwatchApp.obj
+bootstrap.lib(imgui_glfw3.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in TicTacToverwatchApp.obj
+bootstrap.lib(Texture.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in TicTacToverwatchApp.obj
+bootstrap.lib(Texture.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in TicTacToverwatchApp.obj
+msvcprt.lib(MSVCP140.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'

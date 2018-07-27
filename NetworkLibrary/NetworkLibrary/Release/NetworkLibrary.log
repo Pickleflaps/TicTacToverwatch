@@ -1,0 +1,2 @@
+﻿NetworkLibrary.obj : error LNK2001: unresolved external symbol "public: __thiscall RakNet::SystemAddress::SystemAddress(void)" (??0SystemAddress@RakNet@@QAE@XZ)
+C:\Users\Brendan\source\repos\TicTacToverwatch\NetworkLibrary\Release\NetworkLibrary.dll : fatal error LNK1120: 1 unresolved externals
