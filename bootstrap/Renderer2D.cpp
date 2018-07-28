@@ -1,5 +1,5 @@
 #include "gl_core_4_4.h"
-#include <GLFW/glfw3.h>
+#include <glfw3.h>
 #include "Renderer2D.h"
 #include "Texture.h"
 #include "Font.h"
