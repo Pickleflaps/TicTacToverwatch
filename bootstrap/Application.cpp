@@ -1,6 +1,6 @@
 #include "Application.h"
 #include "gl_core_4_4.h"
-#include <GLFW/glfw3.h>
+#include <glfw3.h>
 #include <glm/glm.hpp>
 #include <iostream>
 #include "Input.h"
