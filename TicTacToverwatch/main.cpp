@@ -1,7 +1,7 @@
 #include "TicTacToverwatchApp.h"
 
 int main() {
-	
+
 	// allocation
 	auto app = new TicTacToverwatchApp();
 
