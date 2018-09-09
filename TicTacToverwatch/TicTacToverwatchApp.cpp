@@ -9,6 +9,7 @@
 
 
 TicTacToverwatchApp::TicTacToverwatchApp() {
+	RunGameNetworkFrame();
 	
 }
 
@@ -17,6 +18,9 @@ TicTacToverwatchApp::~TicTacToverwatchApp() {
 }
 
 bool TicTacToverwatchApp::startup() {
+
+
+
 	m_windowX = getWindowWidth();
 	m_windowY = getWindowHeight();
 	//set up open gl shader and camera. 
@@ -71,7 +75,7 @@ bool TicTacToverwatchApp::startup() {
 	SetupBoard(m_windowX, m_windowY);
 	SetupTiles(m_windowX, m_windowY);
 
-	GNF->Run();
+
 
 	return true;
 }

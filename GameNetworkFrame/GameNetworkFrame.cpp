@@ -2,19 +2,19 @@
 
 
 RakPeerInterface* rakPeerInterface;
-FullyConnectedMesh2* fullyConnectedMesh2;
-ReadyEvent* readyEvent;
+TeamManager *teamManager;
+ReplicaManager3 * replicaManager3;
+NetworkIDManager *networkIDManager;
+TCPInterface *tcp;
+NatPunchthroughClient *natPunchthroughClient;
 #ifdef NAT_TYPE_DETECTION_SERVER
 NatTypeDetectionClient *natTypeDetectionClient;
 #endif
-NatPunchthroughClient *natPunchthroughClient;
-HTTPConnection2 *httpConnection2;
-TeamManager *teamManager;
-NetworkIDManager *networkIDManager;
-TCPInterface *tcp;
-NatPunchthroughClient *natPunchThroughClient;
 RPC4 *rpc4;
-ReplicaManager3 * replicaManager3;
+ReadyEvent* readyEvent;
+FullyConnectedMesh2* fullyConnectedMesh2;
+HTTPConnection2 *httpConnection2;
+
 
 
 
@@ -304,8 +304,8 @@ struct UPNPOpenWorkerArgs
 	void(*resultCallback)(bool success, unsigned short portToOpen, void *userData);
 	void(*progressCallback)(const char *progressMsg, void *userData);
 };
-
-RAK_THREAD_DECLARATION(UPNPOpenWorker) {
+RAK_THREAD_DECLARATION(UPNPOpenWorker)
+{
 	UPNPOpenWorkerArgs *args = (UPNPOpenWorkerArgs *)arguments;
 	bool success = false;
 
@@ -321,7 +321,7 @@ RAK_THREAD_DECLARATION(UPNPOpenWorker) {
 		struct UPNPDev * device;
 		for (device = devlist; device; device = device->pNext)
 		{
-			sprintf_s(args->buff, " desc: %s\n st: %s\n\n", device->descURL, device->st);
+			sprintf(args->buff, " desc: %s\n st: %s\n\n", device->descURL, device->st);
 			if (args->progressCallback)
 				args->progressCallback(args->buff, args->userData);
 		}
@@ -334,7 +334,7 @@ RAK_THREAD_DECLARATION(UPNPOpenWorker) {
 			char iport[32];
 			Itoa(args->portToOpen, iport, 10);
 			char eport[32];
-			strcpy_s(eport, iport);
+			strcpy(eport, iport);
 
 			// Version miniupnpc-1.6.20120410
 			int r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
@@ -359,7 +359,7 @@ RAK_THREAD_DECLARATION(UPNPOpenWorker) {
 
 			if (r != UPNPCOMMAND_SUCCESS)
 			{
-				sprintf_s(args->buff, "GetSpecificPortMappingEntry() failed with code %d (%s)\n",
+				sprintf(args->buff, "GetSpecificPortMappingEntry() failed with code %d (%s)\n",
 					r, strupnperror(r));
 				if (args->progressCallback)
 					args->progressCallback(args->buff, args->userData);
@@ -381,7 +381,12 @@ RAK_THREAD_DECLARATION(UPNPOpenWorker) {
 	return 1;
 }
 
-void UPNPOpenAsynch(unsigned short portToOpen, unsigned int timeout, void(*progressCallback)(const char *progressMsg, void *userData), void(*resultCallback)(bool success, unsigned short portToOpen, void *userData), void * userData)
+void UPNPOpenAsynch(unsigned short portToOpen,
+	unsigned int timeout,
+	void(*progressCallback)(const char *progressMsg, void *userData),
+	void(*resultCallback)(bool success, unsigned short portToOpen, void *userData),
+	void *userData
+)
 {
 	UPNPOpenWorkerArgs *args = RakNet::OP_NEW<UPNPOpenWorkerArgs>(_FILE_AND_LINE_);
 	args->portToOpen = portToOpen;
@@ -392,12 +397,11 @@ void UPNPOpenAsynch(unsigned short portToOpen, unsigned int timeout, void(*progr
 	RakThread::Create(UPNPOpenWorker, args);
 }
 
-void UPNPProgressCallback(const char * progressMsg, void * userData)
+void UPNPProgressCallback(const char *progressMsg, void *userData)
 {
 	printf(progressMsg);
 }
-
-void UPNPResultCallback(bool success, unsigned short portToOpen, void * userData)
+void UPNPResultCallback(bool success, unsigned short portToOpen, void *userData)
 {
 	if (success)
 		game->myNatType = NAT_TYPE_SUPPORTS_UPNP;
@@ -412,6 +416,7 @@ void OpenUPNP(void)
 	rakPeerInterface->GetSockets(sockets);
 	UPNPOpenAsynch(sockets[0]->GetBoundAddress().GetPort(), 2000, UPNPProgressCallback, UPNPResultCallback, 0);
 }
+
 #endif
 
 void RegisterGameParticipant(RakNetGUID guid)
@@ -660,7 +665,7 @@ RM3SerializationResult User::Serialize(RakNet::SerializeParameters * serializePa
 
 
 // Main
-int GameNetworkFrame::Run(void)
+int RunGameNetworkFrame(void)
 {
 
 	// Allocate plugins. 
@@ -669,7 +674,7 @@ int GameNetworkFrame::Run(void)
 	fullyConnectedMesh2 = FullyConnectedMesh2::GetInstance();
 	networkIDManager = NetworkIDManager::GetInstance();
 	tcp = TCPInterface::GetInstance();
-	natPunchThroughClient = NatPunchthroughClient::GetInstance();
+	natPunchthroughClient = NatPunchthroughClient::GetInstance();
 #ifdef NAT_TYPE_DETECTION_SERVER
 	natTypeDetectionClient = NatTypeDetectionClient::GetInstance();
 #endif

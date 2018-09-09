@@ -99,8 +99,8 @@
       </AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)RakNet-master\Lib;$(SolutionDir)RakNet-master\DependentExtensions\miniupnpc-1.6.20120410\msvc\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>miniupnpc.lib;ws2_32.lib;%(AdditionalDependencies);</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)RakNet-master;$(SolutionDir)RakNet-master\Lib;$(SolutionDir)RakNet-master\DependentExtensions\miniupnpc-1.6.20120410\msvc\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>miniupnpc.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -36,8 +36,10 @@
 #define DEFAULT_SERVER_PORT "61111"
 #define NAT_TYPE_DETECTION_SERVER 0
 #define USE_UPNP 1
-#define MASTER_SERVER_ADDRESS "masterserver2.raknet.com"	//#define MASTER_SERVER_ADDRESS "localhost"
-#define MASTER_SERVER_PORT 80								//#define MASTER_SERVER_PORT 8888
+//#define MASTER_SERVER_ADDRESS "masterserver2.raknet.com"	
+#define MASTER_SERVER_ADDRESS "localhost"
+//#define MASTER_SERVER_PORT 80								
+#define MASTER_SERVER_PORT 8888
 
 using namespace RakNet;
 
@@ -237,20 +239,6 @@ public:
 	virtual Replica3 *AllocReplica(RakNet::BitStream *allocationIdBitstream, ReplicaManager3 *replicaManager3);
 };
 
-
-void UPNPOpenAsynch(unsigned short portToOpen,
-	unsigned int timeout,
-	void(*progressCallback)(const char *progressMsg, void *userData),
-	void(*resultCallback)(bool success, unsigned short portToOpen, void *userData),
-	void *userData
-);
-
-void UPNPProgressCallback(const char *progressMsg, void *userData);
-void UPNPResultCallback(bool success, unsigned short portToOpen, void *userData);
-void OpenUPNP(void);
-
-
-
 // A system has connected and is ready to participate in the game
 // Register this system with the plugins that need to know about new participants
 // This operation happens after FullyConnectedMesh2 has told us about who the host is.
@@ -260,8 +248,6 @@ void RegisterGameParticipant(RakNetGUID guid);
 void ReleaseRoomFromCloud(void);
 void CreateRoom(void);
 
-class GameNetworkFrame {
-public:
-	int Run(void);
-};
+int RunGameNetworkFrame(void);
+
 

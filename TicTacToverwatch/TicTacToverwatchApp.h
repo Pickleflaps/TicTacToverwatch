@@ -71,8 +71,6 @@ public:
 
 protected:
 
-	GameNetworkFrame * GNF;
-
 	Button *			m_button_next;
 	Button*				m_button_previous;
 	Button*				m_button_ready;
