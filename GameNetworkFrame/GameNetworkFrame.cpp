@@ -1,6 +1,5 @@
 #include "GameNetworkFrame.h"
 
-
 RakPeerInterface* rakPeerInterface;
 TeamManager *teamManager;
 ReplicaManager3 * replicaManager3;
@@ -14,8 +13,6 @@ RPC4 *rpc4;
 ReadyEvent* readyEvent;
 FullyConnectedMesh2* fullyConnectedMesh2;
 HTTPConnection2 *httpConnection2;
-
-
 
 
 // Game Class
@@ -40,8 +37,6 @@ RM3ConstructionState Game::QueryConstruction(RakNet::Connection_RM3 * destinatio
 	else
 		return QueryConstruction_PeerToPeer(destinationConnection, R3P2PM_STATIC_OBJECT_NOT_CURRENTLY_AUTHORITATIVE);
 }
-
-
 
 RM3DestructionState Game::QueryDestruction(RakNet::Connection_RM3 * destinationConnection, ReplicaManager3 * replicaManager3)
 {
@@ -170,6 +165,7 @@ void Game::PostDeserializeConstruction(RakNet::BitStream * constructionBitstream
 	(void)constructionBitstream;
 	(void)sourceConnection;
 }
+
 void Game::PostSerializeConstructionExisting(RakNet::BitStream * constructionBitstream, RakNet::Connection_RM3 * destinationConnection)
 {
 	(void)constructionBitstream;
@@ -382,11 +378,10 @@ RAK_THREAD_DECLARATION(UPNPOpenWorker)
 }
 
 void UPNPOpenAsynch(unsigned short portToOpen,
-	unsigned int timeout,
-	void(*progressCallback)(const char *progressMsg, void *userData),
-	void(*resultCallback)(bool success, unsigned short portToOpen, void *userData),
-	void *userData
-)
+					unsigned int timeout,
+					void(*progressCallback)(const char *progressMsg, void *userData),
+					void(*resultCallback)(bool success, unsigned short portToOpen, void *userData),
+					void *userData)
 {
 	UPNPOpenWorkerArgs *args = RakNet::OP_NEW<UPNPOpenWorkerArgs>(_FILE_AND_LINE_);
 	args->portToOpen = portToOpen;
@@ -401,6 +396,7 @@ void UPNPProgressCallback(const char *progressMsg, void *userData)
 {
 	printf(progressMsg);
 }
+
 void UPNPResultCallback(bool success, unsigned short portToOpen, void *userData)
 {
 	if (success)
@@ -687,7 +683,7 @@ int RunGameNetworkFrame(void)
 	rakPeerInterface->AttachPlugin(fullyConnectedMesh2);
 	rakPeerInterface->AttachPlugin(teamManager);
 	rakPeerInterface->AttachPlugin(natPunchthroughClient);
-#ifdef NAT_InterfaceTYPE_DETECTION_SERVER
+#ifdef NAT_TYPE_DETECTION_SERVER
 	rakPeerInterface->AttachPlugin(natTypeDetectionClient);
 #endif	  
 	rakPeerInterface->AttachPlugin(rpc4);

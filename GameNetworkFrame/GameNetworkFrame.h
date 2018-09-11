@@ -1,6 +1,6 @@
 #pragma once
 
-
+#define MINIUPNP_STATICLIB 
 #include <cstdio>
 #include <cstring>
 #include <stdlib.h>
@@ -21,6 +21,7 @@
 #include "Itoa.h"
 #include "NatPunchthroughClient.h"
 #include "NatTypeDetectionClient.h"
+
 #include "miniupnpc.h"
 #include "upnpcommands.h"
 #include "upnperrors.h"
@@ -32,6 +33,7 @@
 #include "HTTPConnection2.h"
 #include "jansson.h"
 
+
 #define DEFAULT_SERVER_ADDRESS "natpunch.jenkinssoftware.com"
 #define DEFAULT_SERVER_PORT "61111"
 #define NAT_TYPE_DETECTION_SERVER 0
@@ -41,9 +43,8 @@
 //#define MASTER_SERVER_PORT 80								
 #define MASTER_SERVER_PORT 8888
 
+
 using namespace RakNet;
-
-
 
 // Forward declarations
 class User;
