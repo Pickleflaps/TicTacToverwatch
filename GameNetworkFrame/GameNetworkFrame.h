@@ -1,6 +1,6 @@
 #pragma once
 
-#define MINIUPNP_STATICLIB 
+
 #include <cstdio>
 #include <cstring>
 #include <stdlib.h>
